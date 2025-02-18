@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Portfolio - Mojito Studios</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+
+        <style>
+            
+            .audio-container {
+                z-index: 1050; 
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+            }
+    
+          
+            #volumeSlider {
+                width: 150px;
+            }
+    
+            
+            .d-none {
+                display: none !important;
+            }
+
+            #transition-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 9999; 
+}
+        #transition-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        #main-content {
+            display: none;
+        }
+
+        
+        </style>
+    </head>
+    <body id="page-top">
+        <div id="transition-video">
+            <video autoplay muted playsinline>
+                <source src="assets/GaleriaArte/GIFS/lv_0_20241214190445.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+        </div>
+        <script>
+            
+            const videoContainer = document.getElementById('transition-video');
+            const video = videoContainer.querySelector('video');
+            
+            video.onended = () => {
+
+                videoContainer.style.display = 'none';
+        
+
+                document.body.classList.add('loaded');
+            };
+        </script>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">Mojito Studios</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Mage n’Hyde</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Sobre nosotros</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                
+                 <!-- Logotipo -->
+        <div class="logo-container">
+            <img class="masthead-avatar mb-5" src="assets/img/Mesa de trabajo 1.png" alt="Logotipo Mojito Studios" />
+        </div>
+        <!-- Imagen de fondo -->
+        <div class="background-image">
+            <img class="masthead-image" src="assets/GaleriaArte/BannerJuegoMagenHydeSinTituloSinFondo.png" alt="Decoración" />
+        </div>
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0">Mojito Studios</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">¡Estudio indie de desarrollo de videojuegos! Actualmente trabajando en Mage n' Hyde.</p>
+            </div>
+        </header>
+        <div class="audio-container">
+            <button id="audioControlButton" class="btn btn-primary mb-2">
+                🎶 Toca para reproducir música
+            </button>
+            
+            <!-- Controles de volumen (inicialmente ocultos) -->
+            <div id="volumeSliderContainer" class="d-none">
+                <input id="volumeSlider" type="range" min="0" max="1" step="0.1" value="0.5" class="form-range"
+                    oninput="document.getElementById('backgroundAudio').volume=this.value">
+                <button class="btn btn-secondary btn-sm mt-1" 
+                    onclick="toggleMute(this, document.getElementById('backgroundAudio'))">🔇 Silenciar</button>
+            </div>
+        </div>
+    
+        <!-- Audio de fondo -->
+        <audio id="backgroundAudio" loop>
+            <source src="assets/GaleriaArte/MagenHydeMusica.mp3" type="audio/mpeg">
+            Tu navegador no soporta la reproducción de audio.
+        </audio>
+    
+        <script>
+            function toggleMute(button, audio) {
+                if (audio.muted) {
+                    audio.muted = false;
+                    button.textContent = '🔇 Silenciar';
+                } else {
+                    audio.muted = true;
+                    button.textContent = '🔊 Activar sonido';
+                }
+            }
+
+            document.getElementById('audioControlButton').addEventListener('click', function() {
+                var audio = document.getElementById('backgroundAudio');
+                var button = this;
+    
+
+                if (audio.paused) {
+                    audio.play().then(() => {
+
+                        button.textContent = '🎵 Volumen';
+                        
+
+                        button.onclick = function() {
+                            document.getElementById('volumeSliderContainer').classList.toggle('d-none'); 
+                        }
+                        
+                        document.getElementById('volumeSliderContainer').classList.remove('d-none');
+                    }).catch(function(error) {
+                        console.log('El audio no pudo reproducirse:', error);
+                    });
+                }
+            });
+        </script>
+       <!-- Portfolio Section-->
+<section class="page-section portfolio" id="portfolio">
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+            <img src="assets/GaleriaArte/titulo 2.png" alt="Mage n’Hyde" class="custom-title-image">
+        </h2>
+
+         <!-- Llamado a la acción final -->
+         <div class="text-center mt-5">
+            <!-- Video de YouTube -->
+            <div class="video-container mb-4">
+                <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/w7rrcEbCsrU"  
+                    title="Mage n' Hyde - Trailer" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        
+            <!-- Texto centrado -->
+            <p class="text-center text-secondary font-weight-bold" style="font-size: 1.25rem;">
+                ¿Estás listo para dominar la magia y la estrategia?
+            </p>
+        
+            <!-- Botón de llamada a la acción -->
+            <div class="text-center mt-4">
+                <a class="btn btn-xl btn-outline-secondary" href="https://mojitostudios.itch.io/magenhyde" target="_blank">
+                    <i class="fas fa-gamepad me-2"></i>
+                    ¡Juega Mage n'Hyde ahora!
+                </a>
+            </div>
+        </div>
+        
+        
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <!-- Menu de navegación para subsecciones -->
+        <nav class="portfolio-nav">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="#mage n' Hyde">Mage n' Hyde</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#mecánicas">Mecánicas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#historia">Historia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#personajes">Personajes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#controles">Controles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#galería artística">Galería artística</a>
+                </li>
+            </ul>
+        </nav>
+
+           <!-- Sección Historia con diseño atractivo y textos dinámicos -->
+<div id="mage n' Hyde" class="portfolio-subsection mt-5">
+    <div class="container"> <!-- Contenedor para ajustar los márgenes -->
+        <h3 class="text-center text-uppercase text-secondary mb-4">Mage n' Hyde</h3>
+
+        <!-- Introducción dinámica -->
+        <div class="mt-4 text-center">
+            <p class="text-muted lead">
+                <strong>Descubre un mundo donde la estrategia y la magia chocan</strong>. 
+                
+            </p>
+            <p class="text-muted">
+                En <strong>Mage n' Hyde</strong>, cada partida es una oportunidad para brillar: 
+                une fuerzas con tu compañero, elige tu camino y desata el poder de los hechizos únicos en este emocionante juego competitivo.
+            </p>
+            
+        <!-- Imagen principal destacada -->
+        <div class="my-4 text-center">
+            <img src="assets/GaleriaArte/portadaitchio.png" class="img-fluid rounded shadow-sm" alt="Portada Mage n' Hyde">
+        </div>
+
+        <!-- Texto adicional con detalles interesantes -->
+        <div class="mt-4 text-center">
+            <p class="text-muted">
+                <strong>¿Qué hace único a Mage n' Hyde?</strong> Este innovador juego 2vs2 combina elementos de los géneros
+                <strong>Prop Hunt</strong> y <strong>MOBA</strong> en un campo de batalla dinámico. Transforma tu entorno para
+                engañar a tus enemigos, o domina el arte del combate estratégico para asegurar la victoria.
+            </p>
+            <p class="text-muted">
+                Personaliza tu experiencia seleccionando entre personajes con habilidades mágicas únicas y roles específicos,
+                ya sea atacando con fuerza implacable o defendiendo con astucia. ¡No olvides recoger power-ups para invocar
+                criaturas épicas y mejorar tus hechizos mientras luchas por destruir la torre enemiga!
+            </p>
+        </div>
+
+        <!-- Imagen secundaria con descripción -->
+        <div class="my-4 text-center">
+            <img src="assets/ImagenesTuto/tut1.png" class="img-fluid rounded shadow-sm" alt="Tutorial Mage n' Hyde">
+            <p class="text-muted mt-2">
+                <em>Escoge a tu personaje favorito, planea tu estrategia y lucha junto a tu compañero para alcanzar el poder supremo.</em>
+            </p>
+        </div>
+
+        <!-- Imagen y texto adicional -->
+        <div class="my-4 text-center">
+            <img src="assets/ImagenesPresentacion/LuchaEnemigo.jpg" class="img-fluid rounded shadow-sm" alt="Lucha contra enemigos">
+        </div>
+    </div>
+
+    <!-- Sección Mecánicas con carrusel y textos dinámicos -->
+    <div id="mecánicas" class="portfolio-subsection mt-5">
+        <div class="container"> <!-- Contenedor para ajustar los márgenes -->
+            <h3 class="text-center text-uppercase text-secondary mb-4">Mecánicas</h3>
+
+            <!-- Texto explicativo dinámico -->
+            <div class="mt-4 text-center">
+                <p class="text-muted lead">
+                    <strong>Conoce las mecánicas que hacen de Mage n' Hyde una experiencia única.</strong>
+                </p>
+                <p class="text-muted">
+                    Cada jugador comienza eligiendo un personaje con habilidades diferentes y atractivas. Durante la partida, el objetivo principal es destruir la torre enemiga mientras proteges la tuya. Recolecta power-ups y utiliza habilidades definitivas para superar a tus enemigos.
+                </p>
+            </div>
+
+            <!-- Mecánicas destacadas -->
+            <div class="mt-4 text-center">
+                <p class="text-muted">
+                    <strong>1. Combate Estratégico:</strong> Cada mago cuenta con un ataque característico y una habilidad definitiva que se carga al recolectar power-ups. Planifica tus movimientos para atacar y defender de manera eficiente.
+                </p>
+                <p class="text-muted">
+                    <strong>2. Uso de Objetos del Entorno:</strong> Transfórmate en objetos del entorno para ocultarte, evadir ataques o sorprender a tus enemigos con emboscadas inesperadas.
+                </p>
+                <p class="text-muted">
+                    <strong>3. Mecánica de Sigilo:</strong> Aprovecha las transformaciones para permanecer indetectable y preparar ataques desde las sombras. Usa el sigilo a tu favor para controlar el ritmo de la partida. ¡Ten cuidado con el tiempo de transformación! No puedes permanecer escondido durante largos periodos de tiempo.
+                </p>
+            </div>
+
+            <!-- Carrusel de imágenes -->
+            <div id="carouselMecanicas" class="carousel slide mt-4" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/ImagenesPresentacion/Recolecta.png" class="d-block w-100 img-fluid rounded shadow-sm" alt="Recolecta Power-Ups">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/ImagenesPresentacion/PowerUps.png" class="d-block w-100 img-fluid rounded shadow-sm" alt="Usa Power-Ups">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/ImagenesPresentacion/Esconderse.png" class="d-block w-100 img-fluid rounded shadow-sm" alt="Esconde y Ataca">
+                    </div>
+                </div>
+                <!-- Flechas de navegación -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMecanicas" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" style="background-color: red;" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselMecanicas" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" style="background-color: red;" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!-- Carrusel de imágenes -->
+            <div id="carouselMecanicas2" class="carousel slide mt-4" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/ImagenesTuto/PowerUps.png" class="d-block w-100 img-fluid rounded shadow-sm" alt="Recolecta Power-Ups">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/ImagenesTuto/CogerPowerUp.png" class="d-block w-100 img-fluid rounded shadow-sm" alt="Usa Power-Ups">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/ImagenesTuto/HabilidadesDefinitivas.png" class="d-block w-100 img-fluid rounded shadow-sm" alt="Esconde y Ataca">
+                    </div>
+                </div>
+                <!-- Flechas de navegación -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMecanicas2" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" style="background-color: red;" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselMecanicas2" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" style="background-color: red;" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!-- Imagen y texto adicional -->
+            <div class="my-4 text-center">
+                <img src="assets/ImagenesPresentacion/Escondite (2).jpg" class="img-fluid rounded shadow-sm" alt="Lucha contra enemigos">
+                <p class="text-muted mt-2">
+                    <em>¡Transforma el entorno a tu favor y sorprende a tus enemigos con estrategias únicas! <strong> Recuerda que puedes transformarte en estos objetos. </strong></em>
+                </p>
+            </div>
+
+            <div class="my-4 text-center">
+                <img src="assets/ImagenesPresentacion/13.png" class="img-fluid rounded shadow-sm" alt="Lucha contra enemigos">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            <!-- Sección Historia con diseño atractivo y textos dinámicos -->
+        <div id="historia" class="portfolio-subsection mt-5">
+            <div class="container"> <!-- Contenedor para ajustar los márgenes -->
+            <h3 class="text-center text-uppercase text-secondary mb-4">Historia</h3>
+
+            <!-- Introducción envolvente -->
+            <div class="mt-4 text-center">
+                <p class="text-muted lead text-center">
+                    <strong>Adéntrate en un mundo mágico donde el poder absoluto está en juego</strong>.
+                </p>
+                <p class="text-muted text-center">
+                    En este reino fantástico, dos poderosos Magos Supremos luchan por alcanzar la cúspide del poder. Su destino depende de un recurso único escondido en la torre del oponente. Incapaces de actuar físicamente, envían a sus fieles esbirros, pequeños magos con habilidades extraordinarias, para librar su batalla por ellos.
+                </p>
+            </div>
+
+            <!-- Imagen principal destacada -->
+            <div class="my-4 text-center">
+                <img src="assets/GaleriaArte/GIFS/IMG_1868 (2).gif" class="img-fluid rounded shadow-sm" alt="Batalla mágica en el bosque">
+            </div>
+
+            <!-- Detalles narrativos adicionales -->
+            <div class="mt-4 text-center">
+                <p class="text-muted text-center">
+                    Los esbirros, dotados de magia única, son los encargados de proteger su torre y destruir la del enemigo. A través de su valentía y estrategia, deben llevar a su Mago Supremo la victoria definitiva.
+                </p>
+                <p class="text-muted text-center">
+                    Este enfrentamiento épico se desarrolla en un entorno dinámico, donde cada decisión puede cambiar el curso del juego. Los jugadores deben estar siempre atentos y listos para adaptarse a la condiciones del mapa y a la habilidades del oponente.
+                </p>
+            </div>
+
+            <!-- Carrusel de imágenes narrativas -->
+            <div id="carouselHistoria" class="carousel slide mt-4" data-bs-ride="carousel">
+                <div class="carousel-inner text-center">
+                    <div class="carousel-item active">
+                        <img src="assets/ImagenesPresentacion/Torre.png" class="d-block w-100 img-fluid rounded shadow-sm" alt="La Torre del Mago Supremo">
+                        <p class="text-muted mt-2 text-center">
+                            <em>La torre, la clave para el poder absoluto.</em>
+                        </p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/ImagenesPresentacion/torre.jpg" class="d-block w-100 img-fluid rounded shadow-sm" alt="Torre bajo ataque">
+                        <p class="text-muted mt-2 text-center">
+                            <em>¡Defiende tu torre o enfréntate a la derrota!</em>
+                        </p>
+                    </div>
+                </div>
+                <!-- Flechas de navegación -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHistoria" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" style="background-color: red;" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselHistoria" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" style="background-color: red;" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+        </div>
+            <!-- Carrusel de imágenes -->
+            <!--<div id="carouselHistoria" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/img/portfolio/cabin.png" class="d-block w-100" alt="Mundo Imagen 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/portfolio/cake.png" class="d-block w-100" alt="Mundo Imagen 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/portfolio/circus.png" class="d-block w-100" alt="Mundo Imagen 3">
+                    </div>
+                </div>-->
+                <!-- Flechas de navegación -->
+                <!--<button class="carousel-control-prev" type="button" data-bs-target="#carouselHistoria" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselHistoria" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>-->
+            </div>
+
+            <!-- Subsección Personajes con carrusel y texto organizado -->
+            <div id="personajes" class="portfolio-subsection mt-5">
+                <h3 class="text-center text-uppercase text-secondary mb-4">Personajes</h3>
+                
+
+                <div class="row align-items-center mb-5">
+                    <div class="mt-4 text-center">
+                        <p class="text-muted">Cada esbirro bajo el mando de su Mago Supremo cuenta con habilidades y características únicas. ¡Adéntrate en la batlla por el poder y escoge a tu personaje favorito! Piensa en tu estrategia con tu compañero y escoged que personaje se ajusta más a vosotros, si uno más ofensivo (asesino) o más defensivo (tanque).</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12" style="padding-bottom: 50px;">
+                            <img src="assets/ImagenesPresentacion/imagenPersonajes2.png" alt="Mago de Sigilo" style="width: 100%; height: auto;">
+                        </div>
+    
+                        <div class="col-lg-12" style="padding-bottom: 50px;">
+                            <img src="assets/ImagenesPresentacion/ImagenPersonajes.png" alt="Mago de Sigilo" style="width: 100%; height: auto;">
+                        </div>
+                <!-- Carrusel de imágenes y texto -->
+                        <div id="carouselPersonajes" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="assets/GaleriaArte/GIFS/irene.gif" class="d-block w-100" alt="Mago de Sigilo">
+                </div>
+                <div class="col-lg-6 text-center">
+                    <h5 class="text-uppercase text-secondary mb-3">KITTYKAT</h5>
+                    <p class="text-muted">
+                        En la dimensión arcana, donde los Magos Supremos libran su batalla eterna, surge KittyKat, una traviesa y poderosa gata mágica nacida de un accidente mágico o un experimento fallido, según las leyendas. Con su carácter caótico y hechizos descontrolados, KittyKat se unió a la lucha por pura diversión, viendo al Mago Supremo como un "amigo imaginario" que le propone emocionantes aventuras. Para ella, la batalla es un juego lleno de luces y magia, donde puede disfrutar del caos y dejar su huella con risas, colores y un toque de magia impredecible.
+                    </p>
+                    <!-- GIFs adicionales -->
+                    <img src="assets/GaleriaArte/GIFS/gifgit (1).gif" class="mt-3" alt="KittyKat Attack" style="width: 40%; height: auto;">
+                    <img src="assets/GaleriaArte/GIFS/ulti irene.gif" class="mt-3" alt="KittyKat Special" style="width: 40%; height: auto;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="assets/GaleriaArte/GIFS/Miriam.gif" class="d-block w-100" alt="Mago Tanque">
+                </div>
+                <div class="col-lg-6 text-center">
+                    <h5 class="text-uppercase text-secondary mb-3">PUPETTY</h5>
+                    <p class="text-muted">
+                        En los rincones más antiguos de la dimensión arcana, donde la magia fluye incluso en lo inerte, nació Pupetty. Nadie sabe si fue creado por manos mortales o si emergió de los residuos mágicos de un conflicto olvidado. Con una actitud apática, Pupetty vaga por el mundo acompañado de dos enormes manos de madera que maneja como marionetas y un sombrero viviente que murmura secretos, a los cuales rara vez responde. Sin recuerdos de un pasado, su existencia parece atada a fuerzas mayores, quizás la voluntad de su Mago Supremo o un eco de una magia más antigua. Su mirada vacía y su inquietante silencio esconden un misterio profundo, haciendo que quienes lo observan se pregunten si Pupetty es solo un sirviente o un testigo de los conflictos mágicos que moldean su mundo.
+                    </p>
+                    <!-- GIFs adicionales -->
+                    <img src="assets/GaleriaArte/GIFS/gifgit.gif" class="mt-3" alt="Pupetty Attack" style="width: 30%; height: auto;">
+                    <img src="assets/GaleriaArte/GIFS/miriam ulti.gif" class="mt-3" alt="Pupetty Special" style="width: 50%; height: auto;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="assets/GaleriaArte/GIFS/pablo.gif" class="d-block w-100" alt="Mago Tanque">
+                </div>
+                <div class="col-lg-6 text-center">
+                    <h5 class="text-uppercase text-secondary mb-3">DEVEGAN</h5>
+                    <p class="text-muted">
+                        Devegan era un joven intento de mago más en su aldea. Entre los habitantes se contaba la historia de cómo tres hechiceros de la aldea se marcharon y se convirtieron en los mayores magos de Oriente, que volverían tiempo después con riqueza y nuevos poderes arcanos. Decidido por conocer la verdad de esta leyenda, emprendió un viaje al este, y nadie supo nada de él durante décadas. Cuando ya todos lo dieron por muerto, regresó con una personalidad irreconocible, y con un poder ígneo abrumador. Nadie se ha atrevido a preguntarle qué encontró en el este.
+                    </p>
+                    <!-- GIFs adicionales -->
+                    <img src="assets/GaleriaArte/GIFS/gifgit (2).gif" class="mt-3" alt="Devegan Fireball" style="width: 40%; height: auto;">
+                    <img src="assets/GaleriaArte/GIFS/ulti pablo.gif" class="mt-3" alt="Devegan Ultimate" style="width: 40%; height: auto;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-item">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="assets/GaleriaArte/GIFS/hugo.gif" class="d-block w-100" alt="Mago Tanque">
+                </div>
+                <div class="col-lg-6 text-center">
+                    <h5 class="text-uppercase text-secondary mb-3">GRIMM</h5>
+                    <p class="text-muted">
+                        Hace décadas, en una ciudad cuyo nombre se ha perdido, una terrible enfermedad arrasó con gran parte de la población. Los magos supremos de esa época intentaron contener la propagación mediante magia, pero el hechizo se descontroló. Aunque la epidemia se detuvo, de la muerte, el hedor y la putrefacción que plagaban las calles, nació Grimm: un necromorfo formado por una masa negra de cadáveres, con un retorcido y oscuro sentido del humor y una personalidad excéntrica. Dedicó su vida a la batalla entre los hechiceros supremos, pues su voluntad está atada a la de sus creadores.
+                    </p>
+                    <!-- GIFs adicionales -->
+                    <img src="assets/GaleriaArte/GIFS/gifgit (3).gif" class="mt-3" alt="Grimm Raise Dead" style="width: 30%; height: auto;">
+                    <img src="assets/GaleriaArte/GIFS/ulti animación.gif" class="mt-3" alt="Grimm Dark Pulse" style="width: 30%; height: auto;">
+                </div>
+            </div>
+        </div>
+
+
+
+                    <!-- Controles del carrusel -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPersonajes" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" style="background-color: red;" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselPersonajes" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" style="background-color: red;" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                        </div>
+                    </div> <!-- Fin del contenedor -->
+                </div>
+                
+            
+            <!-- Subsección Personajes con carrusel y texto -->
+        <div id="controles" class="portfolio-subsection mt-5">
+            <div class="container"> <!-- Contenedor para ajustar los márgenes -->
+            <h3 class="text-center text-uppercase text-secondary mb-4">Controles</h3>
+            <!-- Texto explicativo -->
+            <div class="mt-4 text-center">
+                <p class="text-muted"> Controles de Mage n' Hyde (PC y Dispositivos Móviles)
+                    </p>
+                <p class="text-muted"> Movimiento: En ordenador, se realiza con click izquierdo; en dispositivos móviles, tocando cualquier área del mapa.
+                    </p>
+                <p class="text-muted"> Esconderse: Click derecho sobre el objeto en PC; mantener presionado el objeto en el dispositivo móvil para camuflarse.
+                    </p>
+                <p class="text-muted"> Ataque: Botón en pantalla, visible en ambas plataformas, permite lanzar ataques o hechizos básicos.
+                    </p>
+                <p class="text-muted"> Ataque elemental: Botón de ataque especial en pantalla para hechizos elementales (fuego, hielo, viento o agua), que requiere un tiempo de recarga. En dispositivos móviles, el botón aparece gris si no se ha recogido el power-up.
+                    </p>
+
+                    
+            </div>
+            <!-- Carrusel de imágenes -->
+            <div id="carouselControles" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/ImagenesPresentacion/7.png" class="d-block w-100" alt="Personajes Imagen 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/ImagenesPresentacion/8.png" class="d-block w-100" alt="Personajes Imagen 2">
+                    </div>
+                    <!--<div class="carousel-item">
+                        <img src="assets/img/portfolio/submarine.png" class="d-block w-100" alt="Personajes Imagen 3">
+                    </div>-->
+                </div>
+                <!-- Flechas de navegación -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselControles" data-bs-slide="prev" style="color: red;">
+                    <span class="carousel-control-prev-icon" style="background-color: red;" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselControles" data-bs-slide="next" style="color: red;">
+                    <span class="carousel-control-next-icon" style="background-color: red;" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+                            <!-- Carrusel de imágenes narrativas -->
+            <div id="carouselHistoria2" class="carousel slide mt-4" data-bs-ride="carousel">
+                <div class="carousel-inner text-center">
+                    <div class="carousel-item active">
+                        <img src="assets/ImagenesTuto/imagen Ordenador.png" class="d-block w-100 img-fluid rounded shadow-sm" alt="La Torre del Mago Supremo">
+                        <p class="text-muted mt-2 text-center">
+                            <em>Juego desde el ordenador.</em>
+                        </p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/ImagenesTuto/Vista Movil.jpg" class="d-block w-100 img-fluid rounded shadow-sm" alt="Torre bajo ataque">
+                        <p class="text-muted mt-2 text-center">
+                            <em>Juego desde el móvil.</em>
+                        </p>
+                    </div>
+                </div>
+                <!-- Flechas de navegación -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHistoria2" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" style="background-color: red;" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselHistoria2" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" style="background-color: red;" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+            <!-- Subsección Personajes con carrusel y texto -->
+        <div id="galería artística" class="portfolio-subsection mt-5">
+            <div class="container"> <!-- Contenedor para ajustar los márgenes -->
+            <h3 class="text-center text-uppercase text-secondary mb-4">Galería Artística</h3>
+            <!-- Texto explicativo -->
+            <div class="mt-4 text-center">
+                <p class="text-muted"> Aquí te mostramos bocetos y sketches de Mage n' Hyde para que se pueda ver el trabajo artístico que hay detrás de la estética final.
+                    </p>
+            </div>
+            <!-- Carrusel de imágenes -->
+            <div id="carouselGaleria" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/ImagenesPresentacion/15.png" class="d-block w-100" alt="Personajes Imagen 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/ImagenesPresentacion/16.png" class="d-block w-100" alt="Personajes Imagen 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/GaleriaArte/cONCEPTmINIONS.png" class="d-block w-100" alt="Personajes Imagen 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/GaleriaArte/Presentation.png" class="d-block w-100" alt="Personajes Imagen 2">
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="video-container">
+                            <video class="d-block w-100" controls>
+                                <source src="assets/Videos/animación 2 inacabada.mp4" type="video/mp4">
+                                Tu navegador no soporta la reproducción de video.
+                            </video>
+                        </div>
+                    </div>
+                    <!--<div class="carousel-item">
+                        <img src="assets/img/portfolio/submarine.png" class="d-block w-100" alt="Personajes Imagen 3">
+                    </div>-->
+                </div>
+                <!-- Flechas de navegación -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselGaleria" data-bs-slide="prev" style="color: red;">
+                    <span class="carousel-control-prev-icon" style="background-color: red;" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselGaleria" data-bs-slide="next" style="color: red;">
+                    <span class="carousel-control-next-icon" style="background-color: red;" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            
+            
+            
+       <!-- Botón al final del portfolio para llevar al juego -->
+       <div class="text-center mt-5">
+        <a class="btn btn-xl btn-outline-secondary" href="https://mojitostudios.itch.io/magenhyde" target="_blank">
+            <i class="fas fa-gamepad me-2"></i>
+            ¡Juega Mage n'Hyde ahora! Ya disponible
+        </a>
+    </div>
+</div>
+</section>
+<section class="page-section bg-primary text-white mb-0" id="about">
+    <div class="container">
+        <!-- About Section Heading -->
+        <h2 class="page-section-heading text-center text-uppercase text-white">Sobre nosotros</h2>
+        <!-- Icon Divider -->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        
+        <!-- Presentación de la empresa -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <img src="assets/img/LogoMojitoVerdeConFondo.png" class="d-block w-100" alt="Mojito Studios - Empresa" style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
+            </div>
+            <div class="col-lg-6 text-center">
+                <p class="lead">En Mojito Studios, creemos en el poder de la creatividad y la innovación. Buscamos desarrollar videojuegos originales y diferentes, que destaquen en todos los sentidos, tanto a nivel de diseño como a nivel artístico y narrativo. Queremos realizar videojuegos que tengan un estilo único y diferente así como mecánicas entretenidas y divertidas que proporcionen al jugador una experiencia que le haga recordarnos y distinguirnos entre otros videojuegos del sector.
+                    Nuestro equipo cuenta con grandes habilidades y conocimientos, echa un vistazo a su trabajo en los iconos que tiene cada integrante.
+                </p>
+            </div>
+        </div>
+
+        <!-- Carrusel de imágenes y texto -->
+        <div id="aboutCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <img src="assets/Integrantes/IntegranteIre.jpg" class="d-block w-100" alt="Irene Rodríguez">
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <h5 class="text-uppercase text-white mb-3">Irene Rodríguez García</h5>
+                            <p class="lead">Soy una artista con gran capacidad creativa y un estilo único y sólido que destaca en cada proyecto. En este trabajo, he aportado mis habilidades como concept artist, aniamdora 2D, UI artist y en la creación de VFX, desarrollando diseños visuales que sorprenden y cautivan.
+
+                                Mi manejo de formas, colores y efectos me permite crear interfaces atractivas, conceptos impactantes y visuales que dan vida al proyecto. Con ideas originales y un enfoque versátil, transformo cada idea en resultados excepcionales que conectan con el público. </p>
+                        <!-- Enlaces sociales -->
+            <div class="d-flex justify-content-center mt-3">
+                <a href="https://linktr.ee/n3wlov3?utm_source=linktree_admin_share" target="_blank" class="mx-2" title="Linktree">
+                    <i class="fas fa-link fa-lg" style="color: #98FF98;"></i>
+                </a>
+                <a href="https://irenerodriguezgarcia.myportfolio.com/" target="_blank" class="mx-2" title="Página Web">
+                    <i class="fas fa-globe fa-lg" style="color: #98FF98;"></i>
+                </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <img src="assets/Integrantes/IntegranteMir.jpg" class="d-block w-100" alt="Miriam Sanz">
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <h5 class="text-uppercase text-white mb-3">Miriam Sanz Tardón</h5>
+                            <p class="lead">Soy un artista creativo con un estilo único y distintivo que aporta personalidad y profundidad a cada proyecto. Mi experiencia abarca ilustración, animación 2D, concept art y desarrollo de narrativas para videojuegos. Mi enfoque combina originalidad, atención al detalle y versatilidad, permitiéndome crear mundos visuales y narrativos que capturan la imaginación.
+
+                                En este proyecto, destaqué en la animación 2D, el concept art, creación de VFX, la escritura de la historia y los guiones, además del diseño y programación de la página web. Mi habilidad para conectar lo visual con lo narrativo garantiza resultados memorables y auténticos.</p>
+                         <!-- Enlaces sociales -->
+            <div class="d-flex justify-content-center mt-3">
+                <a href="https://www.linkedin.com/in/miriam-sanz-tard%C3%B3n-448bb6272/" target="_blank" class="mx-2" title="LinkedIn">
+                    <i class="fab fa-linkedin fa-lg" style="color: #98FF98;"></i>
+                </a>
+                <a href="https://www.instagram.com/eruina.art/?utm_source=qr#" target="_blank" class="mx-2" title="Instagram">
+                    <i class="fab fa-instagram fa-lg" style="color: #98FF98;"></i>
+                </a>
+                <a href="https://eruinaartmst.artstation.com/" target="_blank" class="mx-2" title="ArtStation">
+                    <i class="fab fa-artstation fa-lg" style="color: #98FF98;"></i>
+                </a>
+                <a href="https://drive.google.com/drive/folders/18MikxmERRyULck6o-YlAbaddqMxx-th2?usp=drive_link" target="_blank" class="mx-2" title="Drive">
+                    <i class="fas fa-folder fa-lg" style="color: #98FF98;"></i>
+                </a>
+            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <img src="assets/Integrantes/IntegranteHug.jfif" class="d-block w-100" alt="Hugo Camacho">
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <h5 class="text-uppercase text-white mb-3">Hugo Camacho Rodríguez</h5>
+                            <p class="lead">Cuento con un estilo definido y trazos únicos que destacan en cada proyecto que realizo. Mis animaciones 2D son trabajadas al detalle y están cuidadosamente elaboradas para lograr un resultado fluido y profesional.
+
+                                En este trabajo, he contribuido como concept artist, creador de VFX, animador 2D y en el montaje del tráiler, combinando creatividad y conocimientos técnicos para dar vida al proyecto. Mi versatilidad y dedicación hacen que cada pieza que desarrollo sea visualmente impactante y memorable.  </p>
+                        <!-- Enlaces sociales -->
+            <div class="d-flex justify-content-center mt-3">
+                <a href="https://www.instagram.com/locamach/profilecard/?igsh=MnVsd21tMmg1cXdx" target="_blank" class="mx-2" title="Instagram">
+                    <i class="fab fa-instagram fa-lg" style="color: #98FF98;"></i>
+                </a>
+                <a href="https://x.com/LoHugoArt?t=57T-8whrArRupPM-w_YYzA&s=09" target="_blank" class="mx-2" title="Twitter">
+                    <i class="fab fa-twitter fa-lg" style="color: #98FF98;"></i>
+                </a>
+            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Slide 4 -->
+            <div class="carousel-item">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <img src="assets/Integrantes/IntegrantePab.jfif" class="d-block w-100" alt="Pablo Melgar">
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <h5 class="text-uppercase text-white mb-3">Pablo Melgar Álvarez</h5>
+                        <p class="lead">Tengo conocimientos tanto en el mundo artístico como en la programación, lo que me permite ser un puente clave entre ambas áreas del desarrollo. Mi estilo artístico innovador y único aporta frescura y creatividad a cada proyecto en el que participo.
+
+                            En este trabajo, me he encargado de concept art, ilustración, animación 2D y la creación de VFX, además de integrar y programar todos los elementos en Unity. Mi habilidad para combinar arte y tecnología asegura resultados visualmente impactantes y técnicamente eficientes.  </p>
+                    <!-- Enlaces sociales -->
+            <div class="d-flex justify-content-center mt-3">
+                <a href="https://github.com/PabloMelgar" target="_blank" class="mx-2" title="GitHub">
+                    <i class="fab fa-github fa-lg" style="color: #98FF98;"></i>
+                </a>
+            </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Slide 5 -->
+        <div class="carousel-item">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="assets/Integrantes/IntegranteGha.jfif" class="d-block w-100" alt="Rosa Ghaudy Bellido">
+                </div>
+                <div class="col-lg-6 text-center">
+                    <h5 class="text-uppercase text-white mb-3">Rosa Ghaudy Bellido Euribe</h5>
+                    <p class="lead">Soy una programadora experta con amplios conocimientos en múltiples lenguajes y un excelente manejo de Unity y otras plataformas para videojuegos. Mi fortaleza principal es la programación, lo que me permite abordar y resolver retos complejos de manera eficiente.
+
+                        En este proyecto, me he encargado de la programación general del juego, desarrollando mecánicas, interfaces, y la implementación del multijugador, entre otros elementos. Mi capacidad para adaptar soluciones técnicas asegura una experiencia de juego fluida y sólida en todos los aspectos.</p>
+                 <!-- Enlaces sociales -->
+            <div class="d-flex justify-content-center mt-3">
+                <a href="https://github.com/GhYB30" target="_blank" class="mx-2" title="GitHub">
+                    <i class="fab fa-github fa-lg" style="color: #98FF98;"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/rosa-bellido/" target="_blank" class="mx-2" title="LinkedIn">
+                    <i class="fab fa-linkedin fa-lg" style="color: #98FF98;"></i>
+                </a>
+            </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Slide 6 -->
+    <div class="carousel-item">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <img src="assets/Integrantes/IntegranteSan.jfif" class="d-block w-100" alt="Sandra Martín-Consuegra">
+            </div>
+            <div class="col-lg-6 text-center">
+                <h5 class="text-uppercase text-white mb-3">Sandra Martín-Consuegra Molina-Prados</h5>
+                <p class="lead">Tengo una gran desenvoltura en la implementación de mecánicas y diversos elementos clave para el desarrollo de videojuegos. Con amplios conocimientos en Unity y experiencia en varios lenguajes de programación, me siento cómoda enfrentando cualquier reto o problema que surja durante el proceso de desarrollo.
+
+                    En este proyecto, me he encargado de la implementación de mecánicas, multijugador, interfaces y otros aspectos fundamentales del juego. Mi habilidad para programar y resolver problemas de manera efectiva me permite garantizar un producto final pulido y funcional, destacando siempre en la programación. </p>
+             <!-- Enlaces sociales -->
+             <div class="d-flex justify-content-center mt-3">
+                <a href="https://linktr.ee/SandraMCMP" target="_blank" class="mx-2" title="Linktree">
+                    <i class="fas fa-link fa-lg" style="color: #98FF98;"></i>
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+            
+            <!-- Controles del carrusel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev" style="color: #98FF98;">
+                <span class="carousel-control-prev-icon" style="background-color: #98FF98;" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next" style="color: #98FF98;">
+                <span class="carousel-control-next-icon" style="background-color: #98FF98;" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- About Section Button -->
+        <div class="text-center mt-4">
+            <a class="btn btn-xl btn-outline-light" href="https://linktr.ee/mojitostudios?utm_source=linktree_admin_share">
+                <i class="fas fa-globe me-2"></i>
+                ¡Echa un vistazo a nuestro trabajo!
+            </a>
+        </div>
+    </div>
+</section>
+        <!-- Contact Section-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <!-- Contact Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contacta con nosotros</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Contact Section Form-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7">
+                        <form id="contactForm">
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" name="name" type="text" placeholder="Ingresa tu nombre..." required />
+                                <label for="name">Nombre Completo</label>
+                                <div class="invalid-feedback">Por favor, ingresa tu nombre completo.</div>
+                            </div>
+                
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input 
+                                    class="form-control" 
+                                    id="email" 
+                                    name="email" 
+                                    type="email" 
+                                    placeholder="name@example.com" 
+                                    required 
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                />
+                                <label for="email">Correo Electrónico</label>
+                                <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-3">
+                                <input 
+                                    class="form-control" 
+                                    id="phone" 
+                                    name="phone" 
+                                    type="tel" 
+                                    inputmode="numeric"
+                                    placeholder="(123) 456-7890" 
+                                    required 
+                                    pattern="^\+?\d{0,3}[-.\s]?\(?\d{2,3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$"
+                                    title="Por favor, ingresa un número de teléfono válido, como (123) 456-7890 o +1 (123) 456-7890"
+                                    oninput="this.value = this.value.replace(/[^0-9+()-. ]/g, '')"
+                                />
+                                <label for="phone">Número de Teléfono</label>
+                                <div class="invalid-feedback">Por favor, ingresa un número de teléfono válido.</div>
+                            </div>
+                            
+                            <!-- Message input-->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" name="message" placeholder="Escribe tu mensaje aquí..." style="height: 10rem" required></textarea>
+                                <label for="message">Mensaje</label>
+                                <div class="invalid-feedback">Por favor, escribe tu mensaje.</div>
+                            </div>
+                
+                            <!-- Hidden inputs for EmailJS -->
+                            <input type="hidden" name="_subject" value="Nuevo mensaje del formulario de contacto">
+                            <input type="hidden" name="_captcha" value="false">
+                
+                            <!-- Submit Button-->
+                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Enviar</button>
+                        </form>
+                
+                        <!-- Mensaje de confirmación -->
+                        <div id="confirmationMessage" class="mt-3" style="display: none;">
+                            <p class="text-success">¡Mensaje enviado, gracias!</p>
+                        </div>
+                
+                        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+                        <script>
+                            (function(){
+                                emailjs.init("KiU9Wfz7-AsyPG4ap"); 
+                            })();
+                                        document.getElementById('contactForm').addEventListener('submit', function(event) {
+                                        event.preventDefault(); 
+                                        
+                                        emailjs.sendForm('service_p9c29ne', 'template_bjl6zq9', this)
+                                            .then((result) => {
+                                                console.log('Éxito en el primer envío:', result.text);
+
+                                                return emailjs.sendForm('service_p9c29ne', 'template_hro0dke', this);
+                                            })
+                                            .then((result) => {
+                                                console.log('Éxito en el envío de autoreply:', result.text);
+                                                
+                                                document.getElementById('confirmationMessage').style.display = 'block';
+                                                this.reset();
+                                            })
+                                            .catch((error) => {
+                                                console.log('Error en el proceso de envío:', error.text);
+                                                alert('Ocurrió un error inesperado.');
+                                            });
+                                    });
+                        </script>
+                    </div>
+                </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Localización</h4>
+                        <p class="lead mb-0">
+                           - Madrid -
+                            <br />
+                            España
+                        </p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Nuestras redes sociales</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://x.com/MojitoSt2425"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.youtube.com/@MojitoStudios2425"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://linktr.ee/mojitostudios"><i class="fas fa-link"></i></a> 
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">¡Disfruta de nuestros videojuegos!</h4>
+                        <p class="lead mb-0">
+                            <a href="https://mojitostudios.itch.io/">Mojito Studios</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small>Copyright &copy; Mojito Studios 2024</small></div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
