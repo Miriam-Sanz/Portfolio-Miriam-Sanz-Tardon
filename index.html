@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Portfolio - Mojito Studios</title>
+        <title>Portfolio - Miriam Sanz Tardón</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -35,61 +35,28 @@
                 display: none !important;
             }
 
-            #transition-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 9999; 
-}
-        #transition-video video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        #main-content {
-            display: none;
-        }
+            #main-content {
+                display: none;
+            }
 
         
         </style>
     </head>
     <body id="page-top">
-        <div id="transition-video">
-            <video autoplay muted playsinline>
-                <source src="assets/GaleriaArte/GIFS/lv_0_20241214190445.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video.
-            </video>
-        </div>
-        <script>
-            
-            const videoContainer = document.getElementById('transition-video');
-            const video = videoContainer.querySelector('video');
-            
-            video.onended = () => {
-
-                videoContainer.style.display = 'none';
         
-
-                document.body.classList.add('loaded');
-            };
-        </script>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">Mojito Studios</a>
+                <a class="navbar-brand" href="#page-top">Portfolio Miriam Sanz Tardon</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Mage n’Hyde</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Sobre nosotros</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contacto</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">My Work</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About me</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -107,7 +74,7 @@
             <img class="masthead-image" src="assets/GaleriaArte/BannerJuegoMagenHydeSinTituloSinFondo.png" alt="Decoración" />
         </div>
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Mojito Studios</h1>
+                <h1 class="masthead-heading text-uppercase mb-0">Portfolio Miriam Sanz Tardon</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -120,7 +87,7 @@
         </header>
         <div class="audio-container">
             <button id="audioControlButton" class="btn btn-primary mb-2">
-                🎶 Toca para reproducir música
+                🎶 Tap to play music
             </button>
             
             <!-- Controles de volumen (inicialmente ocultos) -->
@@ -128,13 +95,13 @@
                 <input id="volumeSlider" type="range" min="0" max="1" step="0.1" value="0.5" class="form-range"
                     oninput="document.getElementById('backgroundAudio').volume=this.value">
                 <button class="btn btn-secondary btn-sm mt-1" 
-                    onclick="toggleMute(this, document.getElementById('backgroundAudio'))">🔇 Silenciar</button>
+                    onclick="toggleMute(this, document.getElementById('backgroundAudio'))">🔇 Mute</button>
             </div>
         </div>
     
         <!-- Audio de fondo -->
         <audio id="backgroundAudio" loop>
-            <source src="assets/GaleriaArte/MagenHydeMusica.mp3" type="audio/mpeg">
+            <source src="assets/Music.mp3" type="audio/mpeg">
             Tu navegador no soporta la reproducción de audio.
         </audio>
     
@@ -142,10 +109,10 @@
             function toggleMute(button, audio) {
                 if (audio.muted) {
                     audio.muted = false;
-                    button.textContent = '🔇 Silenciar';
+                    button.textContent = '🔇 Mute';
                 } else {
                     audio.muted = true;
-                    button.textContent = '🔊 Activar sonido';
+                    button.textContent = '🔊 Activate sound';
                 }
             }
 
@@ -220,28 +187,22 @@
         <nav class="portfolio-nav">
             <ul class="nav nav-pills justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="#mage n' Hyde">Mage n' Hyde</a>
+                    <a class="nav-link" href="ConceptArt">Concept Art</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#mecánicas">Mecánicas</a>
+                    <a class="nav-link" href="#Illustrations">Illustrations</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#historia">Historia</a>
+                    <a class="nav-link" href="#ChibiArt">Chibi Art</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#personajes">Personajes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#controles">Controles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#galería artística">Galería artística</a>
+                    <a class="nav-link" href="#Projects">My Projects</a>
                 </li>
             </ul>
         </nav>
 
            <!-- Sección Historia con diseño atractivo y textos dinámicos -->
-<div id="mage n' Hyde" class="portfolio-subsection mt-5">
+<div id="ConceptArt" class="portfolio-subsection mt-5">
     <div class="container"> <!-- Contenedor para ajustar los márgenes -->
         <h3 class="text-center text-uppercase text-secondary mb-4">Mage n' Hyde</h3>
 
@@ -290,7 +251,7 @@
     </div>
 
     <!-- Sección Mecánicas con carrusel y textos dinámicos -->
-    <div id="mecánicas" class="portfolio-subsection mt-5">
+    <div id="Illustrations" class="portfolio-subsection mt-5">
         <div class="container"> <!-- Contenedor para ajustar los márgenes -->
             <h3 class="text-center text-uppercase text-secondary mb-4">Mecánicas</h3>
 
@@ -382,7 +343,7 @@
 
 
             <!-- Sección Historia con diseño atractivo y textos dinámicos -->
-        <div id="historia" class="portfolio-subsection mt-5">
+        <div id="ChibiArt" class="portfolio-subsection mt-5">
             <div class="container"> <!-- Contenedor para ajustar los márgenes -->
             <h3 class="text-center text-uppercase text-secondary mb-4">Historia</h3>
 
@@ -464,7 +425,7 @@
             </div>
 
             <!-- Subsección Personajes con carrusel y texto organizado -->
-            <div id="personajes" class="portfolio-subsection mt-5">
+            <div id="Projects" class="portfolio-subsection mt-5">
                 <h3 class="text-center text-uppercase text-secondary mb-4">Personajes</h3>
                 
 
@@ -572,136 +533,6 @@
                 </div>
                 
             
-            <!-- Subsección Personajes con carrusel y texto -->
-        <div id="controles" class="portfolio-subsection mt-5">
-            <div class="container"> <!-- Contenedor para ajustar los márgenes -->
-            <h3 class="text-center text-uppercase text-secondary mb-4">Controles</h3>
-            <!-- Texto explicativo -->
-            <div class="mt-4 text-center">
-                <p class="text-muted"> Controles de Mage n' Hyde (PC y Dispositivos Móviles)
-                    </p>
-                <p class="text-muted"> Movimiento: En ordenador, se realiza con click izquierdo; en dispositivos móviles, tocando cualquier área del mapa.
-                    </p>
-                <p class="text-muted"> Esconderse: Click derecho sobre el objeto en PC; mantener presionado el objeto en el dispositivo móvil para camuflarse.
-                    </p>
-                <p class="text-muted"> Ataque: Botón en pantalla, visible en ambas plataformas, permite lanzar ataques o hechizos básicos.
-                    </p>
-                <p class="text-muted"> Ataque elemental: Botón de ataque especial en pantalla para hechizos elementales (fuego, hielo, viento o agua), que requiere un tiempo de recarga. En dispositivos móviles, el botón aparece gris si no se ha recogido el power-up.
-                    </p>
-
-                    
-            </div>
-            <!-- Carrusel de imágenes -->
-            <div id="carouselControles" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="assets/ImagenesPresentacion/7.png" class="d-block w-100" alt="Personajes Imagen 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="assets/ImagenesPresentacion/8.png" class="d-block w-100" alt="Personajes Imagen 2">
-                    </div>
-                    <!--<div class="carousel-item">
-                        <img src="assets/img/portfolio/submarine.png" class="d-block w-100" alt="Personajes Imagen 3">
-                    </div>-->
-                </div>
-                <!-- Flechas de navegación -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselControles" data-bs-slide="prev" style="color: red;">
-                    <span class="carousel-control-prev-icon" style="background-color: red;" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselControles" data-bs-slide="next" style="color: red;">
-                    <span class="carousel-control-next-icon" style="background-color: red;" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-
-                            <!-- Carrusel de imágenes narrativas -->
-            <div id="carouselHistoria2" class="carousel slide mt-4" data-bs-ride="carousel">
-                <div class="carousel-inner text-center">
-                    <div class="carousel-item active">
-                        <img src="assets/ImagenesTuto/imagen Ordenador.png" class="d-block w-100 img-fluid rounded shadow-sm" alt="La Torre del Mago Supremo">
-                        <p class="text-muted mt-2 text-center">
-                            <em>Juego desde el ordenador.</em>
-                        </p>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="assets/ImagenesTuto/Vista Movil.jpg" class="d-block w-100 img-fluid rounded shadow-sm" alt="Torre bajo ataque">
-                        <p class="text-muted mt-2 text-center">
-                            <em>Juego desde el móvil.</em>
-                        </p>
-                    </div>
-                </div>
-                <!-- Flechas de navegación -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHistoria2" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" style="background-color: red;" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselHistoria2" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" style="background-color: red;" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-
-
-            <!-- Subsección Personajes con carrusel y texto -->
-        <div id="galería artística" class="portfolio-subsection mt-5">
-            <div class="container"> <!-- Contenedor para ajustar los márgenes -->
-            <h3 class="text-center text-uppercase text-secondary mb-4">Galería Artística</h3>
-            <!-- Texto explicativo -->
-            <div class="mt-4 text-center">
-                <p class="text-muted"> Aquí te mostramos bocetos y sketches de Mage n' Hyde para que se pueda ver el trabajo artístico que hay detrás de la estética final.
-                    </p>
-            </div>
-            <!-- Carrusel de imágenes -->
-            <div id="carouselGaleria" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="assets/ImagenesPresentacion/15.png" class="d-block w-100" alt="Personajes Imagen 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="assets/ImagenesPresentacion/16.png" class="d-block w-100" alt="Personajes Imagen 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="assets/GaleriaArte/cONCEPTmINIONS.png" class="d-block w-100" alt="Personajes Imagen 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="assets/GaleriaArte/Presentation.png" class="d-block w-100" alt="Personajes Imagen 2">
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="video-container">
-                            <video class="d-block w-100" controls>
-                                <source src="assets/Videos/animación 2 inacabada.mp4" type="video/mp4">
-                                Tu navegador no soporta la reproducción de video.
-                            </video>
-                        </div>
-                    </div>
-                    <!--<div class="carousel-item">
-                        <img src="assets/img/portfolio/submarine.png" class="d-block w-100" alt="Personajes Imagen 3">
-                    </div>-->
-                </div>
-                <!-- Flechas de navegación -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselGaleria" data-bs-slide="prev" style="color: red;">
-                    <span class="carousel-control-prev-icon" style="background-color: red;" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselGaleria" data-bs-slide="next" style="color: red;">
-                    <span class="carousel-control-next-icon" style="background-color: red;" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            
-            
-            
-       <!-- Botón al final del portfolio para llevar al juego -->
-       <div class="text-center mt-5">
-        <a class="btn btn-xl btn-outline-secondary" href="https://mojitostudios.itch.io/magenhyde" target="_blank">
-            <i class="fas fa-gamepad me-2"></i>
-            ¡Juega Mage n'Hyde ahora! Ya disponible
-        </a>
-    </div>
-</div>
-</section>
 <section class="page-section bg-primary text-white mb-0" id="about">
     <div class="container">
         <!-- About Section Heading -->
@@ -752,138 +583,12 @@
                 </div>
             </div>
                 
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6">
-                            <img src="assets/Integrantes/IntegranteMir.jpg" class="d-block w-100" alt="Miriam Sanz">
-                        </div>
-                        <div class="col-lg-6 text-center">
-                            <h5 class="text-uppercase text-white mb-3">Miriam Sanz Tardón</h5>
-                            <p class="lead">Soy un artista creativo con un estilo único y distintivo que aporta personalidad y profundidad a cada proyecto. Mi experiencia abarca ilustración, animación 2D, concept art y desarrollo de narrativas para videojuegos. Mi enfoque combina originalidad, atención al detalle y versatilidad, permitiéndome crear mundos visuales y narrativos que capturan la imaginación.
-
-                                En este proyecto, destaqué en la animación 2D, el concept art, creación de VFX, la escritura de la historia y los guiones, además del diseño y programación de la página web. Mi habilidad para conectar lo visual con lo narrativo garantiza resultados memorables y auténticos.</p>
-                         <!-- Enlaces sociales -->
-            <div class="d-flex justify-content-center mt-3">
-                <a href="https://www.linkedin.com/in/miriam-sanz-tard%C3%B3n-448bb6272/" target="_blank" class="mx-2" title="LinkedIn">
-                    <i class="fab fa-linkedin fa-lg" style="color: #98FF98;"></i>
-                </a>
-                <a href="https://www.instagram.com/eruina.art/?utm_source=qr#" target="_blank" class="mx-2" title="Instagram">
-                    <i class="fab fa-instagram fa-lg" style="color: #98FF98;"></i>
-                </a>
-                <a href="https://eruinaartmst.artstation.com/" target="_blank" class="mx-2" title="ArtStation">
-                    <i class="fab fa-artstation fa-lg" style="color: #98FF98;"></i>
-                </a>
-                <a href="https://drive.google.com/drive/folders/18MikxmERRyULck6o-YlAbaddqMxx-th2?usp=drive_link" target="_blank" class="mx-2" title="Drive">
-                    <i class="fas fa-folder fa-lg" style="color: #98FF98;"></i>
-                </a>
-            </div>
+                
                         </div>
                     </div>
                 </div>
 
-                <!-- Slide 3 -->
-                <div class="carousel-item">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6">
-                            <img src="assets/Integrantes/IntegranteHug.jfif" class="d-block w-100" alt="Hugo Camacho">
-                        </div>
-                        <div class="col-lg-6 text-center">
-                            <h5 class="text-uppercase text-white mb-3">Hugo Camacho Rodríguez</h5>
-                            <p class="lead">Cuento con un estilo definido y trazos únicos que destacan en cada proyecto que realizo. Mis animaciones 2D son trabajadas al detalle y están cuidadosamente elaboradas para lograr un resultado fluido y profesional.
-
-                                En este trabajo, he contribuido como concept artist, creador de VFX, animador 2D y en el montaje del tráiler, combinando creatividad y conocimientos técnicos para dar vida al proyecto. Mi versatilidad y dedicación hacen que cada pieza que desarrollo sea visualmente impactante y memorable.  </p>
-                        <!-- Enlaces sociales -->
-            <div class="d-flex justify-content-center mt-3">
-                <a href="https://www.instagram.com/locamach/profilecard/?igsh=MnVsd21tMmg1cXdx" target="_blank" class="mx-2" title="Instagram">
-                    <i class="fab fa-instagram fa-lg" style="color: #98FF98;"></i>
-                </a>
-                <a href="https://x.com/LoHugoArt?t=57T-8whrArRupPM-w_YYzA&s=09" target="_blank" class="mx-2" title="Twitter">
-                    <i class="fab fa-twitter fa-lg" style="color: #98FF98;"></i>
-                </a>
-            </div>
-                        </div>
-                    </div>
-                </div>
-
-            <!-- Slide 4 -->
-            <div class="carousel-item">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <img src="assets/Integrantes/IntegrantePab.jfif" class="d-block w-100" alt="Pablo Melgar">
-                    </div>
-                    <div class="col-lg-6 text-center">
-                        <h5 class="text-uppercase text-white mb-3">Pablo Melgar Álvarez</h5>
-                        <p class="lead">Tengo conocimientos tanto en el mundo artístico como en la programación, lo que me permite ser un puente clave entre ambas áreas del desarrollo. Mi estilo artístico innovador y único aporta frescura y creatividad a cada proyecto en el que participo.
-
-                            En este trabajo, me he encargado de concept art, ilustración, animación 2D y la creación de VFX, además de integrar y programar todos los elementos en Unity. Mi habilidad para combinar arte y tecnología asegura resultados visualmente impactantes y técnicamente eficientes.  </p>
-                    <!-- Enlaces sociales -->
-            <div class="d-flex justify-content-center mt-3">
-                <a href="https://github.com/PabloMelgar" target="_blank" class="mx-2" title="GitHub">
-                    <i class="fab fa-github fa-lg" style="color: #98FF98;"></i>
-                </a>
-            </div>
-                    </div>
-                </div>
-            </div>
-
-        <!-- Slide 5 -->
-        <div class="carousel-item">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <img src="assets/Integrantes/IntegranteGha.jfif" class="d-block w-100" alt="Rosa Ghaudy Bellido">
-                </div>
-                <div class="col-lg-6 text-center">
-                    <h5 class="text-uppercase text-white mb-3">Rosa Ghaudy Bellido Euribe</h5>
-                    <p class="lead">Soy una programadora experta con amplios conocimientos en múltiples lenguajes y un excelente manejo de Unity y otras plataformas para videojuegos. Mi fortaleza principal es la programación, lo que me permite abordar y resolver retos complejos de manera eficiente.
-
-                        En este proyecto, me he encargado de la programación general del juego, desarrollando mecánicas, interfaces, y la implementación del multijugador, entre otros elementos. Mi capacidad para adaptar soluciones técnicas asegura una experiencia de juego fluida y sólida en todos los aspectos.</p>
-                 <!-- Enlaces sociales -->
-            <div class="d-flex justify-content-center mt-3">
-                <a href="https://github.com/GhYB30" target="_blank" class="mx-2" title="GitHub">
-                    <i class="fab fa-github fa-lg" style="color: #98FF98;"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/rosa-bellido/" target="_blank" class="mx-2" title="LinkedIn">
-                    <i class="fab fa-linkedin fa-lg" style="color: #98FF98;"></i>
-                </a>
-            </div>
-                </div>
-            </div>
-        </div>
-
-    <!-- Slide 6 -->
-    <div class="carousel-item">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <img src="assets/Integrantes/IntegranteSan.jfif" class="d-block w-100" alt="Sandra Martín-Consuegra">
-            </div>
-            <div class="col-lg-6 text-center">
-                <h5 class="text-uppercase text-white mb-3">Sandra Martín-Consuegra Molina-Prados</h5>
-                <p class="lead">Tengo una gran desenvoltura en la implementación de mecánicas y diversos elementos clave para el desarrollo de videojuegos. Con amplios conocimientos en Unity y experiencia en varios lenguajes de programación, me siento cómoda enfrentando cualquier reto o problema que surja durante el proceso de desarrollo.
-
-                    En este proyecto, me he encargado de la implementación de mecánicas, multijugador, interfaces y otros aspectos fundamentales del juego. Mi habilidad para programar y resolver problemas de manera efectiva me permite garantizar un producto final pulido y funcional, destacando siempre en la programación. </p>
-             <!-- Enlaces sociales -->
-             <div class="d-flex justify-content-center mt-3">
-                <a href="https://linktr.ee/SandraMCMP" target="_blank" class="mx-2" title="Linktree">
-                    <i class="fas fa-link fa-lg" style="color: #98FF98;"></i>
-                </a>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
-            
-            <!-- Controles del carrusel -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev" style="color: #98FF98;">
-                <span class="carousel-control-prev-icon" style="background-color: #98FF98;" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next" style="color: #98FF98;">
-                <span class="carousel-control-next-icon" style="background-color: #98FF98;" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
+    
         <!-- About Section Button -->
         <div class="text-center mt-4">
             <a class="btn btn-xl btn-outline-light" href="https://linktr.ee/mojitostudios?utm_source=linktree_admin_share">
@@ -897,7 +602,7 @@
         <section class="page-section" id="contact">
             <div class="container">
                 <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contacta con nosotros</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact With Me</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -928,23 +633,6 @@
                                 />
                                 <label for="email">Correo Electrónico</label>
                                 <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
-                            </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input 
-                                    class="form-control" 
-                                    id="phone" 
-                                    name="phone" 
-                                    type="tel" 
-                                    inputmode="numeric"
-                                    placeholder="(123) 456-7890" 
-                                    required 
-                                    pattern="^\+?\d{0,3}[-.\s]?\(?\d{2,3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$"
-                                    title="Por favor, ingresa un número de teléfono válido, como (123) 456-7890 o +1 (123) 456-7890"
-                                    oninput="this.value = this.value.replace(/[^0-9+()-. ]/g, '')"
-                                />
-                                <label for="phone">Número de Teléfono</label>
-                                <div class="invalid-feedback">Por favor, ingresa un número de teléfono válido.</div>
                             </div>
                             
                             <!-- Message input-->
