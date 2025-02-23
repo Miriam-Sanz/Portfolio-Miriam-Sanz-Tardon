@@ -1130,27 +1130,34 @@ Igne embodies the dual nature of fire: destruction, creation, and protection. Hi
                             (function(){
                                 emailjs.init("VgbbIlbKlFlM5FT_g"); 
                             })();
-                                        document.getElementById('contactForm').addEventListener('submit', function(event) {
-                                        event.preventDefault(); 
+                        
+                            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                                event.preventDefault(); 
+                                
+                                // Enviar el formulario al servicio de recepción
+                                emailjs.sendForm('service_rzf2lqk', 'template_bh10iel', this)
+                                    .then((result) => {
+                                        console.log('Éxito en el primer envío:', result.text);
+                        
+                                        // Enviar el formulario de respuesta automática
+                                        return emailjs.sendForm('service_rzf2lqk', 'template_1ga9nfx', this);
+                                    })
+                                    .then((result) => {
+                                        console.log('Éxito en el envío de autoreply:', result.text);
                                         
-                                        emailjs.sendForm('D:service_rzf2lqk', 'template_bh10iel', this)
-                                            .then((result) => {
-                                                console.log('Éxito en el primer envío:', result.text);
-
-                                                return emailjs.sendForm('service_rzf2lqk', 'template_1ga9nfx', this);
-                                            })
-                                            .then((result) => {
-                                                console.log('Éxito en el envío de autoreply:', result.text);
-                                                
-                                                document.getElementById('confirmationMessage').style.display = 'block';
-                                                this.reset();
-                                            })
-                                            .catch((error) => {
-                                                console.log('Error en el proceso de envío:', error.text);
-                                                alert('There is an error with the message sent.');
-                                            });
+                                        // Mostrar el mensaje de confirmación
+                                        document.getElementById('confirmationMessage').style.display = 'block';
+                                        
+                                        // Resetear el formulario
+                                        this.reset();
+                                    })
+                                    .catch((error) => {
+                                        console.log('Error en el proceso de envío:', error.text);
+                                        alert('There is an error with the message sent.');
                                     });
+                            });
                         </script>
+                        
                     </div>
                 </div>
         </section>
