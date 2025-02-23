@@ -13,9 +13,9 @@
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
-  --bs-purple: #6f42c1;
+  --bs-purple: #b195e5;
   --bs-pink: #d63384;
-  --bs-red: #dc3545;
+  --bs-red: #9135dc;
   --bs-orange: #fd7e14;
   --bs-yellow: #ffc107;
   --bs-green: #198754;
@@ -39,11 +39,11 @@
   --bs-success: #198754;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
-  --bs-danger: #dc3545;
+  --bs-danger: #a03789;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 153, 88, 215;
-  --bs-secondary-rgb: 199, 11, 11;
+  --bs-primary-rgb: 174, 92, 141;
+  --bs-secondary-rgb: 225, 106, 149;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -88,11 +88,12 @@
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
+    --bs-body-bg: #f7d8d1;
   }
 }
 
 .masthead {
-  background-color: #6f42c1; 
+  background-color: #881b5b; 
   color: #fff;
   position: relative;
   overflow: hidden; 
